@@ -76,6 +76,7 @@ def sum_of_divisors(n: int) -> int:
         ...
     ValueError: Only positive numbers are accepted
     """
+    
     if n <= 0:
         raise ValueError("Only positive numbers are accepted")
     s = 1
@@ -92,7 +93,10 @@ def sum_of_divisors(n: int) -> int:
             n = int(n / i)
         if temp > 1:
             s *= (i**temp - 1) / (i - 1)
+    if n > 2:
+        s *= (n**2 - 1) / (n - 1)
     return int(s)
+
 
 
 def euler_phi(n: int) -> int:
@@ -120,3 +124,4 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+
